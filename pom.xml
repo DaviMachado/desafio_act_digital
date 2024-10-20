@@ -64,10 +64,17 @@
 			<scope>provided</scope>
 		</dependency>
 		
-		<!-- Banco de Dados SqlServer Driver -->
+		<!-- SqlServer Database -->
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
+		</dependency>
+		
+		<!-- H2 Database -->
+		<dependency>
+		  <groupId>com.h2database</groupId>
+		  <artifactId>h2</artifactId>
+		  <scope>test</scope>
 		</dependency>
 		
 		<!-- Gson -->

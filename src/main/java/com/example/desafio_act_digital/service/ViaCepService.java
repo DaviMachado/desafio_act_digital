@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.desafio_act_digital.domain.dto.EnderecoDTO;
 import com.example.desafio_act_digital.exception.EnderecoNaoEncontradoException;
+import com.google.gson.Gson;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,14 +25,16 @@ public class ViaCepService {
 	RestTemplate restTemplate;
 
 	public EnderecoDTO buscarCep(String cep) {
+		Gson gson = new Gson();
+		
 		try {						
 			HttpEntity<Void> request = new HttpEntity<>(null);
-			ResponseEntity<EnderecoDTO> response = restTemplate
+			ResponseEntity<String> response = restTemplate
 					.exchange(
 								new URI("https://viacep.com.br/ws/" + cep + "/json/"), 
 								HttpMethod.GET,
 								request, 
-								EnderecoDTO.class
+								String.class
 							);
 
 			int status = response.getStatusCode().value();
@@ -39,9 +42,8 @@ public class ViaCepService {
 			if (status == HttpStatus.OK.value()) {
 				log.info("CEP encontrado !!");
 				
-				//
-				// retornar o endereço do ViaCep
-				//
+				EnderecoDTO endereco = gson.fromJson(response.getBody(), EnderecoDTO.class);
+	            return endereco;
 			}
 			else {
 				log.error("Endereço não encontrado !!");
@@ -54,7 +56,6 @@ public class ViaCepService {
 			log.error("Erro ao buscar o CEP atrevés da API do ViaCep !!");
 			throw new EnderecoNaoEncontradoException("Erro ao buscar o CEP atrevés da API do ViaCep !!", HttpStatus.BAD_REQUEST);
 		}
-		return null;
 	}
 	
 }

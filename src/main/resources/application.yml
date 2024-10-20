@@ -1,0 +1,21 @@
+server:
+  port: 3030
+  servlet:
+    context-path: /act_digital
+
+spring:
+  application:
+    name: desafio_act_digital
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=master;encrypt=false;trustServerCertificate=true
+    username: sa
+    password: 1q2w3e4r@#$
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        ddl-auto: none
+        

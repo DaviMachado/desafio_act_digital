@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "4f09a1bc-ea16-4d8e-8433-bb4e7af2369e",
+		"name": "Desafio Act Digital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27613187"
+	},
+	"item": [
+		{
+			"name": "Buscar Cep através da API do ViaCep",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/act_digital/endereco/01001000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"act_digital",
+						"endereco",
+						"01001000"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

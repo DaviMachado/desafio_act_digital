@@ -27,6 +27,8 @@ public class EnderecoControllerIT extends BaseControllerIT {
 	@BeforeEach
 	void inicializar() {
 		path.append(URL_ENDERECO);
+		prepareMockServer(METHOD_GET, ("/" + REGEX_8_DIGITOS + PATH_JSON), STATUS_200, bodyMockSucess());
+		prepareMockServer(METHOD_GET, ("/" + REGEX_MAIS_DE_8_DIGITOS + PATH_JSON), STATUS_400, bodyMockFailed());
 	}
 
 	@AfterEach

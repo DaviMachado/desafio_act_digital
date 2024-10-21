@@ -13,7 +13,7 @@
 	<artifactId>desafio_act_digital</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>desafio_act_digital</name>
-	<description>Buscar CEP</description>
+	<description>Projeto responsável por realizar a busca do CEP através da API do ViaCep</description>
 	
 	<properties>
 		<java.version>17</java.version>
@@ -83,6 +83,19 @@
 			<artifactId>gson</artifactId>
 		</dependency>
 		
+		<!-- MockServer -->
+		<dependency>
+		    <groupId>org.mock-server</groupId>
+		    <artifactId>mockserver-junit-jupiter</artifactId>
+		    <version>5.15.0</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mock-server</groupId>
+			<artifactId>mockserver-spring-test-listener</artifactId>
+			<version>5.15.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

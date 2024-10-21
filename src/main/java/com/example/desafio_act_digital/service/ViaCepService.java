@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.desafio_act_digital.configuration.AppConfig;
 import com.example.desafio_act_digital.domain.dto.EnderecoDTO;
 import com.example.desafio_act_digital.exception.EnderecoNaoEncontradoException;
 import com.google.gson.Gson;
@@ -20,6 +21,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class ViaCepService {
+	
+	@Autowired
+	AppConfig appConfig;
 	
 	@Autowired(required=true)
 	RestTemplate restTemplate;
@@ -31,7 +35,7 @@ public class ViaCepService {
 			HttpEntity<Void> request = new HttpEntity<>(null);
 			ResponseEntity<String> response = restTemplate
 					.exchange(
-								new URI("https://viacep.com.br/ws/" + cep + "/json/"), 
+								new URI(appConfig.getUrlBaseViaCep() + cep + "/json"), 
 								HttpMethod.GET,
 								request, 
 								String.class

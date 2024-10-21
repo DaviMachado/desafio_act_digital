@@ -18,3 +18,8 @@ spring:
   sql:
     init:
       mode: always
+
+mockServerPort: 52591
+
+act-digital:
+  via-cep-api: http://localhost:${mockServerPort}/
